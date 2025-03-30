@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Serif TC', serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+.certificate {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(255, 215, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.certificate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 45%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.1) 55%,
+        transparent 100%
+    );
+    transform: translateX(-100%);
+    animation: shine 3s infinite;
+}
+
+.certificate::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    pointer-events: none;
+}
+
+.border {
+    border: 2px solid #ffd700;
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 
+        0 0 20px rgba(0, 0, 0, 0.1),
+        inset 0 0 20px rgba(0, 0, 0, 0.05),
+        0 0 15px rgba(255, 215, 0, 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+.border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    margin: 10px;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+}
+
+.content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.header h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.recipient h2 {
+    color: #e74c3c;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+.achievement {
+    margin: 30px 0;
+}
+
+.achievement p {
+    font-size: 1.2em;
+    color: #34495e;
+    margin: 10px 0;
+}
+
+.highlight {
+    margin: 20px 0;
+}
+
+.number {
+    font-size: 4em;
+    font-weight: bold;
+    color: #e74c3c;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-left: 10px;
+}
+
+.message {
+    margin: 30px 0;
+}
+
+.message p {
+    font-size: 1.1em;
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.footer {
+    margin-top: 40px;
+    color: #95a5a6;
+    font-size: 1.1em;
+}
+
+.photo-container {
+    position: absolute;
+    top: 120px;
+    right: 30px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    transform: rotate(-5deg);
+    transition: transform 0.3s ease;
+    z-index: 1;
+    opacity: 0.7;
+    animation: shake 3s ease-in-out infinite;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    filter: brightness(1.1);
+}
+
+.photo-container:hover {
+    transform: rotate(0deg) scale(1.05);
+    opacity: 0.9;
+    animation: none;
+}
+
+.photo-container:hover .photo {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+    20%, 100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: rotate(-5deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(-3deg);
+    }
+    75% {
+        transform: rotate(3deg);
+    }
+}
+
+/* 響應式設計 */
+@media (min-width: 1200px) {
+    .certificate {
+        max-width: 1000px;
+    }
+
+    .header h1 {
+        font-size: 3em;
+    }
+
+    .recipient h2 {
+        font-size: 2.5em;
+    }
+
+    .number {
+        font-size: 5em;
+    }
+
+    .text {
+        font-size: 2.5em;
+    }
+
+    .photo-container {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .certificate {
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    .border {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.8em;
+    }
+    
+    .recipient h2 {
+        font-size: 1.5em;
+    }
+    
+    .achievement p {
+        font-size: 1em;
+    }
+
+    .number {
+        font-size: 2.5em;
+    }
+    
+    .text {
+        font-size: 1.2em;
+    }
+
+    .photo-container {
+        width: 100px;
+        height: 100px;
+        top: 80px;
+        right: 15px;
+    }
+
+    .message p {
+        font-size: 0.9em;
+    }
+
+    .footer {
+        font-size: 0.8em;
+    }
+}
+
+/* 觸控設備優化 */
+@media (hover: none) {
+    .certificate,
+    .photo-container,
+    .photo-container:hover,
+    .photo-container:hover .photo {
+        transform: none !important;
+    }
+} 

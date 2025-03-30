@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hui 的運動成就獎狀</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="certificate">
+        <div class="border">
+            <div class="content">
+                <div class="header">
+                    <h1>🏆 運動成就獎狀 🏆</h1>
+                </div>
+                <div class="main-content">
+                    <div class="recipient">
+                        <h2>Hui 同學</h2>
+                    </div>
+                    <div class="achievement">
+                        <p>在此特別表揚你</p>
+                        <div class="highlight">
+                            <span class="number">15</span>
+                            <span class="text">天</span>
+                        </div>
+                        <p>持續不懈的運動精神</p>
+                    </div>
+                    <div class="message">
+                        <p>你的堅持和毅力展現了非凡的決心</p>
+                        <p>這份成就值得我們為你感到驕傲</p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <p>頒發日期：2025年3月30日</p>
+                </div>
+            </div>
+            <div class="photo-container">
+                <img src="hui01.png" alt="Hui的照片" class="photo">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const certificate = document.querySelector('.certificate');
+            
+            document.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = certificate.getBoundingClientRect();
+                const x = (e.clientX - left) / width - 0.5;
+                const y = (e.clientY - top) / height - 0.5;
+                
+                const rotateX = y * 10;
+                const rotateY = x * 10;
+                
+                certificate.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            document.addEventListener('mouseleave', () => {
+                certificate.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+    </script>
+</body>
+</html> 
